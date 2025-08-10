@@ -1,0 +1,570 @@
+/* 自定义全局变量 */
+:root {
+  --sidebar-width: 280px;
+  --primary-color: #324D67;
+  --text-color: #333333;
+  --light-gray: #f8f9fa;
+  --border-color: #e0e0e0;
+  --active-color: #2a7cc7;
+}
+
+/* 全局样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--light-gray);
+  line-height: 1.6;
+  position: relative;
+}
+
+/* 页面容器使用flex左右布局，确保覆盖屏幕，负边距 */
+.page-container {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  margin-top: -5vh;
+}
+
+/* 全屏背景样式（磨砂玻璃效果） */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: var(--sidebar-width);
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.background-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('assets/background.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    filter: brightness(0.8);
+}
+
+.background-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+}
+
+/* 内容区域透明且可滚动 */
+.content {
+    background-color: transparent;
+}
+
+/* 左侧导航栏 */
+.sidebar {
+  width: var(--sidebar-width);
+  background: white;
+  padding: 180px 1.5rem 1.5rem;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  z-index: 10;
+  overflow-y: auto;
+}
+
+.profile-container {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.profile-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  margin: -80px auto 10px;
+  background: white;
+}
+
+.sidebar h1 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+/* 导航栏列表 */
+.nav-links {
+  list-style: none;
+  margin: 3.5rem 0 2rem;
+  padding-left: 1rem;
+}
+
+/* 列表项垂直间距 */
+.nav-links li {
+  margin-bottom: 0.8rem;
+}
+
+/* 静态状态 */
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1rem;
+  display: block;
+  padding: 0.7rem 1rem;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  margin-right: 1rem;
+}
+
+/* 悬停状态 */
+.nav-links a:hover {
+  color: var(--text-color);
+  background: #f5f5f5;
+  box-shadow: 
+    inset 2px 2px 4px rgba(0,0,0,0.1),
+    inset -2px -2px 4px rgba(0,0,0,0.05);
+  transform: translateY(1px);
+}
+
+/* 激活状态 */
+.nav-links a:active {
+  box-shadow: 
+    inset 3px 3px 6px rgba(0,0,0,0.15),
+    inset -3px -3px 6px rgba(0,0,0,0.1);
+}
+
+
+/* 主内容区 */
+.content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: 1.5rem 3rem;
+  position: relative;
+  z-index: 1;
+  margin-top: 120px;
+}
+
+.section {
+  margin-bottom: 2rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section-content {
+  line-height: 1.7;
+}
+
+.section-content h3 {
+  margin: 1.5rem 0 0.8rem;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+/* 特别优化Contact部分 */
+#contact .section-content {
+  line-height: 1.8;
+}
+
+#contact p {
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+}
+
+#contact strong {
+  display: inline-block;
+  min-width: 80px;
+  margin-right: 10px;
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+  .content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-background {
+    height: 200px;
+  }
+
+  .content {
+    margin-left: 0;
+    margin-top: 100px;
+    padding: 1.2rem;
+  }
+
+  .sidebar {
+    padding: 160px 1.5rem 2rem;
+  }
+
+  .profile-image {
+    margin: -50px auto 15px;
+    width: 140px;
+    height: 140px;
+  }
+
+  .nav-links {
+    padding-left: 1rem;
+    margin: 2rem 0 1.8rem;
+  }
+  .nav-links a {
+    padding: 0.9rem 1rem;
+  }
+}
+#contact .section-content a[href^="mailto:"] {
+  color: inherit;
+  text-decoration: none;
+}
+
+#contact .section-content a[href^="mailto:"]:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Welcome标题区 */
+.welcome-header {
+    height: 20vh;
+    margin: 5vh 0;
+    top: 0;
+}
+
+.welcome-title {
+    font-size: 4.3rem;
+    line-height: 0.82;
+    padding-top: 0.4rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.welcome-title::first-letter {
+    font-size: 6rem;
+    vertical-align: bottom;
+    margin-right: 0.1rem;
+    position: relative;
+    top: -0.2rem;
+    font-weight: 700;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+/* 调整原有内容间距 */
+.content {
+    padding-top: 0;
+}
+
+/* 恢复第一个section的默认间距 */
+.section:first-of-type {
+    margin-top: inherit;
+}
+
+/* 语言切换按钮样式 */
+#language-switcher {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 1000;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 30px;
+    padding: 8px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(5px);
+}
+
+.lang-btn {
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    color: #666;
+}
+
+.lang-btn:hover {
+    color: var(--active-color);
+    background: rgba(42, 124, 199, 0.1);
+    transform: translateY(-1px);
+}
+
+.lang-btn.active {
+    color: var(--active-color);
+    font-weight: 600;
+    position: relative;
+}
+
+.lang-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--active-color);
+    animation: underline 0.3s ease-out;
+}
+
+@keyframes underline {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.lang-separator {
+    color: #ccc;
+    font-weight: 300;
+    user-select: none;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    #language-switcher {
+        top: 15px;
+        right: 15px;
+        padding: 6px 15px;
+        font-size: 1rem;
+    }
+    .background-image {
+      left: 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #language-switcher {
+        top: 10px;
+        right: 10px;
+        padding: 5px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .welcome-title {
+        font-size: 3.5rem;
+    }
+    
+    .welcome-title::first-letter {
+        font-size: 5rem;
+    }
+}
+
+/* 语言切换动画 */
+.lang-element {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 语言切换动画关键帧 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 研究兴趣特殊样式 */
+.research-interest {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.research-interest-line1,
+.research-interest-line2 {
+  margin: 0;
+  padding: 0;
+}
+
+/* 中文版本样式 */
+body[lang="zh"] .research-interest-line2 {
+  display: block;
+}
+
+/* 英文版本样式 */
+body[lang="en"] .research-interest {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+body[lang="en"] .research-interest-line1::after {
+  content: "";
+}
+
+body[lang="en"] .research-interest-line2 {
+  display: inline;
+}
+
+/* 移动端滑动左侧栏样式 */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -280px;
+        top: 0;
+        bottom: 0;
+        width: 280px;
+        transition: transform 0.3s ease-out;
+        z-index: 100;
+    }
+
+    .sidebar.active {
+        transform: translateX(280px);
+    }
+
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 99;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 101;
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+        color: var(--primary-color);
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .mobile-menu-btn:hover {
+        background: white;
+        transform: scale(1.05);
+    }
+
+    .page-container {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .background-image {
+        left: 0 !important;  /* 确保背景覆盖整个屏幕 */
+    }
+    
+    .content {
+        margin-left: 0 !important;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        width: 100%;
+    }
+    
+    .section {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+    
+    /* 确保欢迎区域也填满宽度 */
+    .welcome-header {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+/* ===== 移动端导航按钮样式 ===== */
+.mobile-nav-toggle {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    width: 40px;
+    height: 80px;
+    background: rgba(255,255,255,0.95);
+    border: none;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.mobile-nav-toggle:hover {
+    background: white;
+    width: 44px;
+}
+
+.toggle-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+    border-right: 4px solid var(--primary-color);
+    border-bottom: 4px solid var(--primary-color);
+    transform: rotate(-45deg);
+    transition: all 0.3s ease;
+}
+
+.sidebar.active ~ .mobile-nav-toggle .toggle-icon {
+    transform: rotate(135deg);
+}
+
+@media (max-width: 768px) {
+    .mobile-nav-toggle {
+        display: block;
+    }
+    
+    /* 确保按钮不会被语言切换按钮遮挡 */
+    #language-switcher {
+        z-index: 1001;
+    }
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陆阳的个人主页</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 右上角语言切换按钮 -->
+    <div id="language-switcher">
+        <span id="zhBtn" class="lang-btn active">中文</span>
+        <span class="lang-separator">｜</span>
+        <span id="enBtn" class="lang-btn">English</span>
+    </div>
+
+    <!-- 全屏背景图片 -->
+    <div class="background-image"></div>
+
+    <!-- 侧边栏遮罩 -->
+    <div class="sidebar-overlay"></div>
+
+    <!-- 移动端导航触发按钮 -->
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+        <span class="toggle-icon"></span>
+    </button>
+
+    <!-- 核心区域-->
+    <div class="page-container">
+
+        <!-- 左侧导航栏 -->
+        <nav class="sidebar">
+            <div class="profile-container">
+                <img src="assets/profile.jpg" alt="陆阳" class="profile-image">
+                <h1>Yang Lu | 陆 阳</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about" class="lang-element" data-en="About Me" data-zh="关于我">关于我</a></li>
+                <li><a href="#research" class="lang-element" data-en="Research" data-zh="研究成果">研究成果</a></li>
+                <li><a href="#skills" class="lang-element" data-en="Technical Skills" data-zh="技术能力">技术能力</a></li>
+                <li><a href="#contact" class="lang-element" data-en="Contact" data-zh="联系方式">联系方式</a></li>
+            </ul>
+        </nav>
+
+        <!-- 主内容区 -->
+        <main class="content">
+
+            <!-- Welcome标题区 -->
+            <section class="welcome-header">
+                <h1 class="welcome-title lang-element" data-en="Welcome to my homepage" data-zh="Welcome to my homepage">Welcome to my homepage</h1>
+            </section>
+
+            <!-- 关于我 -->
+            <section id="about" class="section">
+                <h2 class="section-title lang-element" data-en="About Me" data-zh="关于我">关于我</h2>
+                <div class="section-content">
+                    <!-- 教育背景 -->
+                    <h3 class="lang-element" data-en="Education" data-zh="教育背景">教育背景</h3>
+                    <p class="lang-element" 
+                       data-en="M.A. Candidate in Journalism and Communication, School of Journalism and Communication, Nanjing University | Sep 2025 – Present"
+                       data-zh="南京大学新闻传播学院 新闻与传播 硕士研究生 | 2025年9月 -">
+                        南京大学新闻传播学院 新闻与传播 硕士研究生 | 2025年9月 -
+                    </p>
+                    <p class="lang-element" 
+                       data-en="B.A. in Japanese Language and Literature, School of Foreign Studies, Nanjing University | Sep 2021 – Jun 2025"
+                       data-zh="南京大学外国语学院 日语语言文学 文学学士 | 2021年9月 - 2025年6月">
+                        南京大学外国语学院 日语语言文学 文学学士 | 2021年9月 - 2025年6月
+                    </p>
+                    
+                    <!-- 研究兴趣 -->
+                    <h3 class="lang-element" data-en="Research Interests" data-zh="研究兴趣">研究兴趣</h3>
+                    <div class="research-interest lang-element" 
+                        data-en="Computational communication, International communication"
+                        data-zh="计算传播、国际传播">
+                        <p class="research-interest-line1">计算传播、国际传播</p>
+                        <p class="research-interest-line2">包括基于NLP自然语言处理、社交媒体数据分析等方法的数字平台信息扩散与媒介效应；同时关注跨文化叙事、东亚媒体与东亚传播</p>
+                    </div>
+                    
+                    <!-- 语言能力 -->
+                    <h3 class="lang-element" data-en="Languages" data-zh="语言">语言</h3>
+                    <p class="lang-element" 
+                       data-en="Mandarin, English (IELTS 7.5), Japanese (JLPT-N1)"
+                       data-zh="中文、英语（雅思7.5）、日语（JLPT-N1）">
+                        中文、英语（雅思7.5）、日语（JLPT-N1）
+                    </p>
+                </div>
+            </section>
+
+            <!-- 研究成果 -->
+            <section id="research" class="section">
+                <h2 class="section-title lang-element" data-en="Research" data-zh="研究成果">研究成果</h2>
+                <div class="section-content">
+                    <h3 class="lang-element" data-en="Academic Papers" data-zh="学术论文">学术论文</h3>
+                    <p>
+                        <em class="lang-element" data-en="First Author" data-zh="第一作者">第一作者</em>：
+                        <span class="lang-element" 
+                              data-en="The Interaction of Information Environment and Socioeconomic Status on Fertility Intentions: A Cross-Sectional Study of Chinese Women of Reproductive Age (Under Review)"
+                              data-zh="The Interaction of Information Environment and Socioeconomic Status on Fertility Intentions: A Cross-Sectional Study of Chinese Women of Reproductive Age (Under Review)">
+                              The Interaction of Information Environment and Socioeconomic Status on Fertility Intentions: A Cross-Sectional Study of Chinese Women of Reproductive Age（Under Review）
+                        </span>
+                    </p>
+                    
+                    <p>
+                        <em class="lang-element" data-en="Second Author" data-zh="第二作者">第二作者</em>：
+                        <span class="lang-element" 
+                              data-en="Does Reading Make You Happier? Evidence from the Chinese General Social Survey on Reading Behavior and the Regulation of Depressive Emotions (Accepted by 'New Century Library')"
+                              data-zh="“越读书，越幸福吗？”：阅读行为与抑郁情绪调节研究——基于中国综合社会调查数据的经验证据（《新世纪图书馆》录用待刊）">
+                              “越读书，越幸福吗？”：阅读行为与抑郁情绪调节研究——基于中国综合社会调查数据的经验证据（《新世纪图书馆》录用待刊）
+                        </span>
+                    </p>
+                    
+                    <h3 class="lang-element" data-en="Theses" data-zh="学位论文">学位论文</h3>
+                    
+                    <!-- 学位论文显示问题 -->
+                    <p class="lang-element" 
+                       data-en="Undergraduate Thesis: News Frames and the Construction of National Image in “Made in China” Reports: A Case Study of Asahi Shimbun"
+                       data-zh="本科毕业论文：“中国制造”报道中的新闻框架与国家形象建构——以《朝日新闻》为例">
+                        本科毕业论文：“中国制造”报道中的新闻框架与国家形象建构——以《朝日新闻》为例
+                    </p>
+                </div>
+            </section>
+
+            <!-- 技术能力 -->
+            <section id="skills" class="section">
+                <h2 class="section-title lang-element" data-en="Technical Skills" data-zh="技术能力">技术能力</h2>
+                <div class="section-content">
+                    <!-- 数据分析 -->
+                    <h3 class="lang-element" data-en="Data Analysis" data-zh="数据分析">数据分析</h3>
+                    <p class="lang-element" 
+                       data-en="Python (Pandas/NumPy/NLTK) · SQL · Stata"
+                       data-zh="Python (Pandas/NumPy/NLTK) · SQL · Stata">
+                        Python (Pandas/NumPy/NLTK) · SQL · Stata
+                    </p>
+                    
+                    <!--可视化 -->
+                    <h3 class="lang-element" data-en="Visualization" data-zh="可视化">可视化</h3>
+                    <p class="lang-element" 
+                       data-en="Tableau · HTML · CSS · JavaScript (Chart.js/Echarts)"
+                       data-zh="Tableau · HTML · CSS · JavaScript (Chart.js/Echarts)">
+                        Tableau · HTML · CSS · JavaScript (Chart.js/Echarts)
+                    </p>
+                </div>
+            </section>
+
+            <!-- 联系方式 -->
+            <section id="contact" class="section">
+                <h2 class="section-title lang-element" data-en="Contact" data-zh="联系方式">联系方式</h2>
+                <div class="section-content">
+                    <p>
+                        <strong class="lang-element" data-en="Email" data-zh="邮箱">邮箱</strong> 
+                        <a href="mailto:luyang137665@gmail.com">luyang137665@gmail.com</a>
+                    </p>
+                    <p>
+                        <strong class="lang-element" data-en="Address" data-zh="地址">地址</strong> 
+                        <span class="lang-element" 
+                              data-en="Nanjing University, No.163 Xianlin Avenue, Qixia District, Nanjing, Jiangsu, China, 210023"
+                              data-zh="中国江苏省南京市栖霞区仙林大道163号南京大学，210023">
+                            中国江苏省南京市栖霞区仙林大道163号南京大学，210023
+                        </span>
+                    </p>
+                    <p>
+                        <strong class="lang-element" data-en="Personal Website" data-zh="个人主页">个人主页</strong> 
+                        <span class="lang-element" 
+                              data-en="https://yang-729.github.io/"
+                              data-zh="https://yang-729.github.io/">
+                              https://yang-729.github.io/
+                        </span>
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- 解析完成 -->
+    <script src="style.js"></script>
+</body>
+</html>
