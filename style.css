@@ -28,14 +28,16 @@ body {
   display: flex;
   min-height: 100vh;
   position: relative;
-  margin-top: -5vh;
+  margin-top: 0;
+  padding: 20px 0;
+  justify-content: flex-start;
 }
 
 /* 全屏背景样式（磨砂玻璃效果） */
 .background-image {
     position: fixed;
     top: 0;
-    left: var(--sidebar-width);
+    left: 0;
     right: 0;
     bottom: 0;
     z-index: -1;
@@ -70,14 +72,15 @@ body {
     background-color: transparent;
 }
 
-/* 左侧导航栏 */
+/* 调整左侧导航栏垂直分布 - 增加顶部内边距 */
 .sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
   width: var(--sidebar-width);
   background: white;
   padding: 180px 1.5rem 1.5rem;
-  position: fixed;
-  top: 0;
-  bottom: 0;
   box-shadow: 2px 0 10px rgba(0,0,0,0.1);
   z-index: 10;
   overflow-y: auto;
@@ -88,6 +91,7 @@ body {
   margin-bottom: 0.5rem;
 }
 
+/* 调整头像位置 */
 .profile-image {
   width: 160px;
   height: 160px;
@@ -95,7 +99,7 @@ body {
   object-fit: cover;
   border: 3px solid white;
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  margin: -80px auto 10px;
+  margin: -100px auto 10px;
   background: white;
 }
 
@@ -108,7 +112,7 @@ body {
 /* 导航栏列表 */
 .nav-links {
   list-style: none;
-  margin: 3.5rem 0 2rem;
+  margin: 1.5rem 0 0;
   padding-left: 1rem;
 }
 
@@ -149,41 +153,67 @@ body {
 }
 
 
-/* 主内容区 */
+/* 恢复内容区域样式，保持文字排版 */
 .content {
   flex: 1;
-  margin-left: var(--sidebar-width);
-  padding: 1.5rem 3rem;
+  margin-left: calc(var(--sidebar-width) + 2.5rem);
+  padding: 2.5rem 3rem 3rem;
   position: relative;
   z-index: 1;
-  margin-top: 120px;
-}
-
-.section {
-  margin-bottom: 2rem;
-  background: white;
-  padding: 1.5rem;
+  margin-top: 40px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(3px);
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  position: relative;
+  margin-right: 2.5rem;
+  margin-bottom: 2rem;
+  min-height: calc(100vh - 120px);
+  width: calc(100% - var(--sidebar-width) - 5rem);
 }
 
+/* 恢复section样式 */
+.section {
+  margin-bottom: 0;
+  background: transparent;
+  padding: 1.8rem 0;
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.section:last-of-type {
+  border-bottom: none;
+}
+
+/* 恢复section标题样式 */
 .section-title {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: var(--primary-color);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 2px solid var(--primary-color);
+  font-weight: 600;
 }
 
 .section-content {
-  line-height: 1.7;
+  line-height: 1.6;
+  font-size: 1rem;
 }
 
 .section-content h3 {
-  margin: 1.5rem 0 0.8rem;
+  margin: 1.2rem 0 0.6rem;
   font-size: 1.1rem;
   color: var(--text-color);
+  font-weight: 500;
+}
+
+/* 调整section之间的分割线长度 */
+.section::before {
+  display: none;
+}
+
+.section:last-of-type::before {
+  display: none;
 }
 
 /* 特别优化Contact部分 */
@@ -202,6 +232,17 @@ body {
   margin-right: 10px;
 }
 
+/* 调整段落间距 - 稍微减小 */
+.section-content p {
+  margin-bottom: 0.8rem;  /* 从1rem调整为0.8rem */
+  line-height: 1.65;     /* 从1.7调整为1.65 */
+}
+
+/* 调整学术论文段落的间距 */
+#research .section-content p {
+  margin-bottom: 1rem;    /* 从1.2rem调整为1rem */
+}
+
 /* 响应式设计 */
 @media (max-width: 992px) {
   .content {
@@ -212,6 +253,34 @@ body {
 @media (max-width: 768px) {
   .header-background {
     height: 200px;
+  }
+
+  .content {
+    margin-left: 1.5rem !important;
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    margin-right: 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    margin-top: 30px;
+    min-height: auto;
+    width: calc(100% - 3rem);
+  }
+  
+  .section-title {
+    max-width: 90%;
+  }
+  
+  .section::before {
+    left: 5%;
+    right: 5%;
+  }
+  
+  .section {
+    padding: 1.2rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
   }
 
   .content {
@@ -249,30 +318,10 @@ body {
 }
 
 /* Welcome标题区 */
-.welcome-header {
-    height: 20vh;
-    margin: 5vh 0;
-    top: 0;
-}
-
-.welcome-title {
-    font-size: 4.3rem;
-    line-height: 0.82;
-    padding-top: 0.4rem;
-    font-weight: 600;
-    color: white;
-    letter-spacing: 1px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
+.welcome-header,
+.welcome-title,
 .welcome-title::first-letter {
-    font-size: 6rem;
-    vertical-align: bottom;
-    margin-right: 0.1rem;
-    position: relative;
-    top: -0.2rem;
-    font-weight: 700;
-    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  display: none;
 }
 
 /* 调整原有内容间距 */
@@ -403,13 +452,19 @@ body {
 .research-interest {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 2px;  /* 减小容器内元素的间距 */
 }
 
+/* 特别调整研究兴趣部分的两行文字间距 - 更加紧凑 */
 .research-interest-line1,
 .research-interest-line2 {
   margin: 0;
   padding: 0;
+  line-height: 1.2;  /* 进一步减小行高 */
+}
+
+.research-interest-line2 {
+  margin-top: -0.2rem;  /* 使用负边距使两行更加紧凑 */
 }
 
 /* 中文版本样式 */
@@ -567,4 +622,80 @@ body[lang="en"] .research-interest-line2 {
     #language-switcher {
         z-index: 1001;
     }
+}
+
+/* 社交按钮容器 - 向下移动 */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 50%;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: transparent;
+}
+
+.social-btn:hover {
+  color: var(--active-color);
+  border-color: var(--active-color);
+  transform: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+/* CV文字按钮样式 */
+.cv-btn {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 邮件按钮保持emoji样式 */
+.mail-btn {
+  font-size: 1.3rem;
+}
+
+/* GitHub图标样式 - 极简版 */
+.github-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(0%);
+  transition: filter 0.2s ease;
+}
+
+.github-btn:hover .github-icon {
+  filter: brightness(0) saturate(100%) invert(35%) sepia(60%) saturate(1500%) hue-rotate(190deg) brightness(90%) contrast(90%);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .social-buttons {
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+  
+  .social-btn {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .github-icon {
+    width: 22px;
+    height: 22px;
+  }
 }
